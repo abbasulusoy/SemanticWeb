@@ -1,82 +1,26 @@
-<!----
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tui:<http://data.ifs.tuwien.ac.at/study/resource>.
 
-<rdf:RDF
-      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-      xmlns:foaf="http://xmlns.com/foaf/0.1/"
-      xmlns:dc="http://purl.org/dc/elements/1.1/"
-      xmlns:bibo="http://purl.org/ontology/bibo/"
-      xmlns:dcterms="http://purl.org/dc/terms/"
-      xmlns:ical="http://www.w3.org/2002/12/cal/ical#"
-      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" >
+<http://data.ifs.tuwien.ac.at/study/resource/abbas/foaf.rdf>
+    tui foaf:PersonalProfileDocument ;
+    rdfs:label "abbas TUI STUDENT' FOAF File" ;
+    foaf:maker <http://www.example.com/abbas#me> ;
+    foaf:primaryTopic <http://www.example.com/abbas#me> .
 
-  <foaf:PersonalProfileDocument rdf:about="">
-    <foaf:maker rdf:resource="http://data.ifs.tuwien.ac.at/study/resource"/>
-    <foaf:primaryTopic rdf:resource="http://data.ifs.tuwien.ac.at/study/resource"/>
-  </foaf:PersonalProfileDocument>
-
-  <foaf:Person rdf:ID="me">
-    <foaf:name xml:lang="en">Abbas ULUSOY</foaf:name>
-    <foaf:givenname>Abbas</foaf:givenname>
-    <foaf:family_name>Ulusoy</foaf:family_name>
-    <foaf:title>Bakk</foaf:title>
-    <foaf:img rdf:resource="http://www.ch.ic.ac.uk/rzepa/rzepa_2005.jpg"/>
-    <foaf:nick>ABUL</foaf:nick>
-    <foaf:based_near geo:lat="51.497798" geo:long="-0.176728" />
-    <foaf:mbox rdf:resource="mailto:abbasuluso@hotmail.com"/>
-    <foaf:homepage rdf:resource="http://www.abbasulusoy.com"/>
-    
-
-<!--   Interests; publications            -->
-
-<foaf:interest  rdf:resource="http://dx.doi.org/10.1021/ol703129z"/>
-
-<!--   Interests; molecules           -->
-<foaf:interest rdf:resource="http://dx.doi.org/10042/to-426"/>
-<foaf:interest rdf:resource="http://dx.doi.org/10042/to-332"/>
-      <!-- Knows -->
-    <foaf:knows rdf:resource="#Martina"/>
-	<foaf:knows rdf:resource="#Matthias"/>
-    <!-- PROJECTS -->
-    <foaf:studies>
-	<foaf:study>
-      <foaf:bakk>
-		<foaf:organization>Business Informatic</foaf:organization>
-        <foaf:homepage rdf:resource="https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=5317&dsrid=84&key=45300" />
-      </foaf:bakk>
-	</foaf:study>
-	<foaf:study>	
-      <foaf:master>
-		<foaf:organization>Masterstudium Software Engineering & Internet Computing</foaf:organization>
-        <foaf:homepage rdf:resource="https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=5317&dsrid=553&key=56290" />
-      </foaf:master>
-    </foaf:study>
-	</foaf:studies> 
-  </foaf:Person>
-
-  <!-- FRIENDS -->
-
-  <foaf:Person rdf:ID="Martina">
-    <foaf:name>Egon Willighagen</foaf:name>
-    <rdfs:seeAlso rdf:resource="http://blueobelisk.sourceforge.net/people/egonw/foaf.xml"/>
-    <foaf:knows rdf:resource="#me"/>
-  </foaf:Person>
-  
-   <foaf:Person rdf:ID="Matthias">
-    <foaf:name>Egon Willighagen</foaf:name>
-    <rdfs:seeAlso rdf:resource="http://blueobelisk.sourceforge.net/people/egonw/foaf.xml"/>
-    <foaf:knows rdf:resource="#me"/>
-  </foaf:Person>
-
-  <!-- GROUPS -->
-
-  <foaf:Group rdf:ID="Gruppe5">
-    <foaf:name>Gruppe5</foaf:name>
-    <foaf:member rdf:resource="#me"/>
-	<foaf:member rdf:resource="#Matthias"/>
-	<foaf:member rdf:resource="#Martina"/>
-  </foaf:Group>
-
-</rdf:RDF>
-
--->
+<http://data.ifs.tuwien.ac.at/study/resource/abbas#me>
+    tui foaf:Person ;
+    foaf:currentProject [
+        tui foaf:Project ;
+        foaf:homepage <http://data.ifs.tuwien.ac.at/study/resource/abbas#me/project> ;
+        foaf:name "Einfuehrung Web Semantic"
+    ] ;
+    foaf:family_name "ULUSOY" ;
+    foaf:firstName "Abbas" ;
+	foaf:age "32" xsd: Integer;
+	foaf:email "abbasulusoy@hotmail.com"
+    foaf:homepage <http://data.ifs.tuwien.ac.at/study/resource/abbas/> ;
+    foaf:name "Abbas Ulusoy"@en ;
+	foaf:study "Software Engineering and Internet Computing";
+    foaf:title "Mr Bakk".
