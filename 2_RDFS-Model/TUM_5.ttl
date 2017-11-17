@@ -4,16 +4,82 @@
 @prefix tui:<http://data.ifs.tuwien.ac.at/study/resource>.
 @prefix tum:<http://data.ifs.tuwien.ac.at/study.rdf>.
 
-tum:Student rdfs:subClassOf foaf:Person .
-tum:Lecturer rdfs:subClassOf foaf:Person .
-tum:Program rdf:type rdf:Class.
-tum:Course rdf:type rdf:Class.
+tum:Student rdfs:subClassOf foaf:Person ;
+rdfs:comment "Represents a collection of Student".
+
+tum:Lecturer rdfs:subClassOf foaf:Person ;
+rdfs:comment "Represents a collection of Lecturers";
+
+tum:Program rdf:type rdf:Class;
+rdfs:comment "Represents a collection of Programs".
+
+tum:Course rdf:type rdf:Class;
+rdfs:comment "Represents a collection of Programs".
+
+tum:Student     rdf:type      rdfs:Class .
+tum:studentID   rdf:type      rdf:Property .
+tum:studentID   rdfs:domain   tum:Student.
+
+tum:Lecturer    rdf:type      rdfs:Class .
+tum:lecturerID  rdf:type      rdf:Property .
+tum:lecturerID  rdfs:domain   tum:Lecturer.
+
+tum:Program     rdf:type      rdfs:Class;
+tum:programID   rdf:type      rdf:Property;
+tum:programID   rdfs:domain   tum:Program;
+tum:name        rdf:type      rdf:Property;
+tum:name        rdfs:domain   tum:Program.
+
+tum:Course      rdf:type      rdfs:Class .
+tum:courseID        rdf:type      rdf:Property;
+tum:courseID    rdfs:domain   tum:Course;
+tum:name        rdf:type      rdf:Property;
+tum:name        rdfs:domain   tum:Course.
 
 tum:absolved rdf:type rdf:Property ;
-  rdfs:range tum:Cource ;
+  rdfs:range tum:Course ;
   rdfs:domain tum:Student.
 
-tum:absolved rdf:type rdf:Property ;
+tum:hasProgram rdf:type rdf:Property ;
+  rdfs:range tum:Student;
+  rdfs:domain tum:Program.
+
+tum:visit rdf:type rdf:Property ;
   rdfs:range tum:Student;
   rdfs:domain tum:Course.
 
+tum:mandatory rdf:type rdf:Property ;
+  rdfs:range tum:Student;
+  rdfs:domain tum:Course.
+
+tum:hasCourseLecturer rdf:type rdf:Property ;
+  rdfs:range tum:Lecturer;
+  rdfs:domain tum:Course.
+
+tui:"Abbas ULUSOY" a tum:Student;
+   tum:studentId "0248291".
+
+tui:"Abbas ULUSOY" a tum:Student;
+    tum:hasProgram "Software Engineering and Internet Computing".
+
+tui:"Abbas ULUSOY" a tum:Student;
+    tum:visit "Model Engineering 188.923, VU, 2017W";
+    tum:visit "Advanced Internet Computing 184.269, VU, 2017W";
+    tum:visit "Funktionale Programmierung 185.A03, VU, 2017W";
+    tum:visit "Einführung in Semantic Web 188.399, VU, 2017W";
+    tum:visit "Objektorientierte Programmiertechniken 185.A01, VU, 2017W";
+    tum:visit "Web Application Engineering & Content Management 184.209, VU, 2017W";
+    tum:visit "Requirements Engineering and Specification 188.409, VU, 2017W";
+    tum:visit "Advanced Software Engineering 180.456, VO, 2017W" .
+
+tui:"Abbas ULUSOY" a tum:Student;
+    tum:absolved "Basics of Human Computer Interaction 187.A21, VU, 2017S";
+    tum:absolved "Gesellschaftliche Spannungsfelder der Informatik 187.237, VU, 2017S".
+
+tui:"Abbas ULUSOY" a tum:Student;
+    tum:mandatory "Model Engineering 188.923, VU, 2017W";
+    tum:mandatory "Advanced Internet Computing 184.269, VU, 2017W".
+
+tui:"Model_Lecturer12" a tum:Lecturer;
+    tum:hasCourseLecturer "Model Engineering 188.923, VU, 2017W";
+    tum:name "Kappel, Gertrude".
