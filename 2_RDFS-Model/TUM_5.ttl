@@ -80,6 +80,6 @@ tui:"Abbas ULUSOY" a tum:Student;
     tum:mandatory "Model Engineering 188.923, VU, 2017W";
     tum:mandatory "Advanced Internet Computing 184.269, VU, 2017W".
 
-tui:"Model_Lecturer12" a tum:Lecturer;
+tui:"Kappel_Getrude" a tum:Lecturer;
     tum:hasCourseLecturer "Model Engineering 188.923, VU, 2017W";
-    tum:name "Kappel, Gertrude".
+    tum:lecturerID "0000000Model1".
