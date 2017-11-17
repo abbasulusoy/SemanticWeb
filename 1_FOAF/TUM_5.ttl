@@ -1,0 +1,93 @@
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:tum="http://data.ifs.tuwien.ac.at/study.rdf">
+
+<rdf:Description about="http://data.ifs.tuwien.ac.at/study.rdf">
+ <rdfs:comment>Study in TuWien RSF
+ 
+	In	this	exercise,	you	will	create	a	new	vocabulary	that	makes	it	possible	to	make	
+	some	typical	statements	about	life	as	a	student	at	TU	Wien.	You	will	later	
+	on	(in	exercise	III)	use	the	vocabulary	created	in	this	step	to	describe	your	own	studies.		
+	Task	descriptions:	The	developed	RDF-S	model	should	cover	the	domain	of	study	programs,
+	courses,	students,	lecturers	and	provide	predicates	to	describe	the	relations	between	them.
+	At	a	minimum,	it	should	allow	you	to	state	the	following	facts	
+	(you	will	need	this	in	exercise	III):				
+	• List	of	courses	that	are	mandatory	for	your	study	program.	
+	• List	of	students	that	have	been	lectured	by	certain	Lecturers.	
+	• List	of	courses	that	that	have	been	attended	by	all	of	your	group	members.	
+ </rdfs:comment>
+</rdf:Description>
+
+<rdfs:Class ID="Program">
+  <rdfs:label xml:lang="en">Programs</rdfs:label>
+  <rdfs:comment>Masterstudium Software Engineering & Internet Computing</rdfs:comment>
+  <rdfs:has rdf:resource="#Course"/>
+  <rdfs:has rdf:resource="#Student"/>
+</rdfs:Class>
+
+<rdf:Class ID="Course">
+  <rdfs:label xml:lang="en">Courses</rdfs:label>
+  <rdfs:comment>Collection of Courses.</rdfs:comment>
+  <rdfs:has rdf:resource="#Student"/>
+  <rdfs:has rdf:resource="#Lecturer"/>
+</rdf:Description>
+
+<rdf:Class ID="Student">
+  <rdfs:label xml:lang="en">Students</rdfs:label>
+  <rdfs:comment>Collection of Students.</rdfs:comment>
+  <rdfs:subClassOf rdf:resource="#Person"/>
+  <rdfs:has rdf:resource="#Course"/>
+</rdf:Description>
+
+<rdf:Class ID="Lecturer">
+  <rdfs:label xml:lang="en">Lecturers</rdfs:label>
+  <rdfs:comment>Collection of Lecturers.</rdfs:comment>
+  <rdfs:subClassOf rdf:resource="#Person"/>
+  <rdfs:has rdf:resource="#Course"/>	
+</rdf:Description>
+
+<rdf:Property ID="studentId">
+  <rdfs:comment>Matrikel Number</rdfs:comment>
+  <rdfs:range rdf:resource="http://www.datatypes.org/useful_types#Integer"/>
+  <rdfs:domain rdf:resource="#Student"/>
+</rdf:Property>
+
+<rdf:Property ID="lecturerId">
+  <rdfs:comment>Lecturer Number</rdfs:comment>
+  <rdfs:range rdf:resource="http://www.datatypes.org/useful_types#Integer"/>
+  <rdfs:domain rdf:resource="#Lecturer"/>
+</rdf:Property>
+
+<rdf:Property ID="courseId">
+  <rdfs:comment>Course Number</rdfs:comment>
+  <rdfs:range rdf:resource="http://www.datatypes.org/useful_types#Integer"/>
+  <rdfs:domain rdf:resource="#Course"/>
+</rdf:Property>
+
+<rdf:Property ID="programId">
+  <rdfs:comment>Programm Number</rdfs:comment>
+  <rdfs:range rdf:resource="http://www.datatypes.org/useful_types#Integer"/>
+  <rdfs:domain rdf:resource="#Program"/>
+</rdf:Property>
+
+<Student name ="abbas Ulusoy" studentId="0248291">
+	<course courseId="188.923"> Model Engineering  </course>
+	<course courseId="184.269"> Advanced Internet Computing  </course>
+	<course courseId="185.A01"> Funktionale Programmierung </course>
+	<course courseId="185.399"> Einführung in Semantic Web </course>
+	<course courseId="184.A01"> Objektorientierte Programmiertechniken </course>
+	<course courseId="184.209"> Web Application Engineering & Content Management </course>
+	<course courseId="188.409"> Requirements Engineering and Specification </course>
+	<course courseId="180.456"> Advanced Software Engineering </course>
+</Student>
+
+<course name="Einführung in Semantic Web"> 
+	<lecturer>Elmar Kiesling</lecturer>
+</course>
+
+<lecturer name="Elmar Kiesling"> 
+	<course>Semantic Web</course> 
+</lecturer>  
+
+</RDF>
